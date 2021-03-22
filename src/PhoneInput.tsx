@@ -22,8 +22,9 @@ export default class PhoneInput<TextComponentType extends React.ComponentType = 
     constructor(props) {
         super(props);
 
+        const initialValue = '';
         let {
-            initialCountry, initialValue
+            initialCountry
         } = this.props;
 
         const {
@@ -122,8 +123,8 @@ export default class PhoneInput<TextComponentType extends React.ComponentType = 
                 this.setState(
                     {
                         iso2,
-                        displayValue: this.format(``),
-                        value: ``
+                        displayValue: this.format(''),
+                        value: ''
                     },
                     () => {
                         if (this.props.onSelectCountry) this.props.onSelectCountry(iso2);
@@ -161,10 +162,7 @@ export default class PhoneInput<TextComponentType extends React.ComponentType = 
             ? modifiedNumber
             : this.possiblyEliminateZeroAfterCountryCode(modifiedNumber);
         const iso2: string = PhoneNumber.getCountryCodeOfNumber(modifiedNumber);
-
-        const displayValue = 
-(modifiedNumber);
-
+        const displayValue = modifiedNumber;
         this.setState({
             iso2,
             displayValue,
