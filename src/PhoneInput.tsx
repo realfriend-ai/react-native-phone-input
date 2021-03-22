@@ -161,7 +161,7 @@ export default class PhoneInput<TextComponentType extends React.ComponentType = 
         modifiedNumber = allowZeroAfterCountryCode
             ? modifiedNumber
             : this.possiblyEliminateZeroAfterCountryCode(modifiedNumber);
-        const iso2: string = PhoneNumber.getCountryCodeOfNumber(modifiedNumber);
+        const iso2: string = PhoneNumber.getCountryCodeOfNumber(modifiedNumber) || this.state.iso2;
         const displayValue = modifiedNumber;
         this.setState({
             iso2,
