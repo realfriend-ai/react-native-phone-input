@@ -104,7 +104,7 @@ export default class PhoneInput<TextComponentType extends React.ComponentType = 
     }
 
     getValue(text?) {
-        return text ? text.replace(/[^0-9]/g, '') : this.state.value;
+        return (text || text === '') ? text.replace(/[^0-9+]/g, '') : this.state.value;
     }
 
     getNumberType() {
