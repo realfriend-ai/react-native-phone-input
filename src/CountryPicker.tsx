@@ -23,12 +23,12 @@ export default class CountryPicker extends Component<ReactNativeCountryPickerPro
         };
     }
 
-    componentDidUpdate() {
+    componentDidUpdate(prevProps) {
         const { selectedCountry } = this.props;
 
-        if (selectedCountry && selectedCountry !== this.state.selectedCountry) {
+        if (selectedCountry && selectedCountry !== this.state.selectedCountry && prevProps.selectedCountry !== selectedCountry) {
             this.setState({ // eslint-disable-line react/no-did-update-set-state
-                selectedCountry: this.props.selectedCountry,
+                selectedCountry,
             });
         }
     }
